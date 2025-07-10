@@ -14,9 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Front end
+Route::view('/', 'frontend.index')->name('home');
+
+Route::view('/about', 'frontend.about')->name('about');
+
+
+Route::view('/services', 'frontend.service')->name('service');
+
+Route::view('/contact', 'frontend.contact')->name('contact');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
