@@ -27,6 +27,11 @@ Route::view('/contact', 'frontend.contact')->name('contact');
 
 
 
+Route::prefix('/admin')->name('admin.')->group(function () {
+    Route::view('/dashboard', 'admin.index')->name('index');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
