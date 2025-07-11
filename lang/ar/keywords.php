@@ -10,4 +10,6 @@ return [
    'signIn' => 'تسجيل الدخول',
    'rememberMe' => 'حفظ البيانات',
    'enrollments' => 'الاشتراكات',
+   'welcome' => 'مرحبا',
+   'logout' => 'تسجيل الخروج',
 ];

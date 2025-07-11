@@ -22,7 +22,12 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-        // $assetDir = LaravelLocalization::getCurrentLocale() == 'ar' ? 'admin-rtl' : 'admin';
-        // View::share('assetDir', $assetDir);
+        $assetDir = LaravelLocalization::getCurrentLocale() == 'ar' ? 'admin-rtl' : 'admin';
+        $locale = LaravelLocalization::getCurrentLocale() == 'ar' ? 'en' : 'ar';
+
+        View::share([
+            'assetDir' => $assetDir,
+            'locale' => $locale,
+        ]);
     }
 }

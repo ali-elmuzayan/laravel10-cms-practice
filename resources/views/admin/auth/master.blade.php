@@ -8,20 +8,26 @@
     <link rel="icon" href="favicon.ico">
     <title>{{ __('keywords.dashboard') }} - @yield('title')</title>
     <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/css/simplebar.css">
+    <link rel="stylesheet" href="{{ asset($assetDir) }}/css/simplebar.css">
     <!-- Fonts CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Icons CSS -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/css/feather.css">
+    <link rel="stylesheet" href="{{ asset($assetDir) }}/css/feather.css">
     <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/css/daterangepicker.css">
+    <link rel="stylesheet" href="{{ asset($assetDir) }}/css/daterangepicker.css">
     <!-- App CSS -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="{{ asset('admin') }}/css/app-dark.css" id="darkTheme" disabled>
+    <link rel="stylesheet" href="{{ asset($assetDir) }}/css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="{{ asset($assetDir) }}/css/app-dark.css" id="darkTheme" disabled>
   </head>
-  <body class="light ">
-    <div class="wrapper vh-100">
-        @yield('content')
+  <body class=" light vh-100  {{ $assetDir == 'admin-rtl' ? 'rtl' : '' }}">
+
+    <div class="wrapper h-100">
+          <div class="text-white p-4 position-absolute top-0 end-0" >
+                <x-lang-switcher></x-lang-switcher>
+            </div>
+        <div class="row align-items-center h-100">
+            @yield('content')
+        </div>
     </div>
     <script src="{{ asset('admin') }}/js/jquery.min.js"></script>
     <script src="{{ asset('admin') }}/js/popper.min.js"></script>

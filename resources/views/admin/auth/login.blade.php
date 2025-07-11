@@ -3,7 +3,7 @@
 
 @section('content')
 
- <div class="row align-items-center h-100">
+
         <form class="col-lg-3 col-md-4 col-10 mx-auto text-center" method="post" action="{{ route('admin.login.store') }}">
             @csrf
           <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
@@ -32,7 +32,6 @@
               <input type="checkbox" value="remember-me" name="remember"> {{ __('keywords.rememberMe') }} </label>
           </div>
           <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('keywords.login') }}</button>
-          <p class="mt-5 mb-3 text-muted">© 2020</p>
+
         </form>
-      </div>
 @endsection

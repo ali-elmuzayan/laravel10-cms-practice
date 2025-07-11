@@ -1,6 +1,6 @@
 <html lang="en">
  @include('admin.partials.head')
-  <body class="vertical  light  ">
+  <body class="vertical  light  {{ $assetDir == 'admin-rtl' ? 'rtl' : '' }}">
     <div class="wrapper">
 
      @include('admin.partials.navbar')
