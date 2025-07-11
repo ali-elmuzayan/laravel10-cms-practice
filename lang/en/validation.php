@@ -188,7 +188,10 @@ return [
 
     'attributes' => [
         'password' => 'Password',
-        'email' => 'Email'
+        'email' => 'Email',
+        'title' => 'Title',
+        'description' => 'Description',
+        'icon' => 'Icon',
     ],
 
 ];

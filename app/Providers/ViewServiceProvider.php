@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class ViewServiceProvider extends ServiceProvider
 {
+    public const PER_PAGE = 10;
     /**
      * Register services.
      */
@@ -29,5 +31,9 @@ class ViewServiceProvider extends ServiceProvider
             'assetDir' => $assetDir,
             'locale' => $locale,
         ]);
+
+        // bootstrap
+            Paginator::useBootstrapFive();
+
     }
 }

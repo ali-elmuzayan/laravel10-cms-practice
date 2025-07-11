@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -18,38 +17,30 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 
-// Front end
+
+/****
+ * Front end
+ */
 Route::view('/', 'frontend.index')->name('home');
-
 Route::view('/about', 'frontend.about')->name('about');
-
-
 Route::view('/services', 'frontend.service')->name('service');
-
 Route::view('/contact', 'frontend.contact')->name('contact');
 
 
 
-
-
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-});
-
-
+/**
+ * Admin
+ */
 Route::prefix(LaravelLocalization::setLocale() .'/admin')->name('admin.')->group(function () {
 
     Route::middleware('auth')->group(function () {
-
+        //********************** Dashboard Index Page & Logout ***********************/
         Route::view('/dashboard', 'admin.index')->name('index');
-
         Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+        //********************** Services ***********************/
+        Route::resource('services', ServiceController::class);
     });
 
 
@@ -57,3 +48,11 @@ Route::prefix(LaravelLocalization::setLocale() .'/admin')->name('admin.')->group
 
 
 });
+
+
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+// });
