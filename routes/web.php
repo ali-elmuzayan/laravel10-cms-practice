@@ -3,7 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::prefix('/admin')->name('admin.')->group(function () {
+Route::prefix(LaravelLocalization::setLocale() .'/admin')->name('admin.')->group(function () {
 
     Route::middleware('auth')->group(function () {
 

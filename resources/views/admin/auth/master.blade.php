@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>Dashboard - @yield('title')</title>
+    <title>{{ __('keywords.dashboard') }} - @yield('title')</title>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="{{ asset('admin') }}/css/simplebar.css">
     <!-- Fonts CSS -->
